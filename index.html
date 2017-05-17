@@ -257,8 +257,22 @@
 </ul>
 <p>出现提示：</p>
 <blockquote>
-<p>INFO Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop.<br>在浏览器打开<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000/</a>，你将看到你在本地server搭建的博客。</p>
+<p>INFO Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop. </p>
 </blockquote>
+<p>在浏览器打开<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000/</a>，你将看到你在本地server搭建的博客。</p>
+<h2 id="将Hexo与GitHubPage联系起来"><a href="#将Hexo与GitHubPage联系起来" class="headerlink" title="将Hexo与GitHubPage联系起来"></a>将Hexo与GitHubPage联系起来</h2><ul>
+<li><p>配置git个人信息：<br>设置Git的username和email：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"username"</span></div><div class="line">$ git config --global user.email <span class="string">"email"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>生成密钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t ras -C <span class="string">"your email"</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>配置完成将id_isa.pub中的内容写入github中的ssh-key。    </p>
+<ul>
+<li>配置Deployment<br>在主目录中的_config.yml文件中。添加以下代码：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: git@github.com:yourname/yourname.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
