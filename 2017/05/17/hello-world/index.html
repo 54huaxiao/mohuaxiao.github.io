@@ -174,13 +174,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-            <!-- Table of Contents -->
-		
-		<div id="toc" class="toc-article">
-		<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置环境"><span class="toc-number">1.</span> <span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-Hexo"><span class="toc-number">2.</span> <span class="toc-text">Install Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo相关配置"><span class="toc-number">3.</span> <span class="toc-text">Hexo相关配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将Hexo与GitHubPage联系起来"><span class="toc-number">4.</span> <span class="toc-text">将Hexo与GitHubPage联系起来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">5.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">5.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">5.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">5.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">5.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
-		</div>
-		
+        <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置环境"><span class="toc-number">1.</span> <span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-Hexo"><span class="toc-number">2.</span> <span class="toc-text">Install Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo相关配置"><span class="toc-number">3.</span> <span class="toc-text">Hexo相关配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将Hexo与GitHubPage联系起来"><span class="toc-number">4.</span> <span class="toc-text">将Hexo与GitHubPage联系起来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">5.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">5.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">5.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">5.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">5.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+             
+        <!-- 目录内容结束 -->
         <p><a href="https://hexo.io" target="_blank" rel="external">Hexo</a>是一款基于Node.js的静态博客框架。一直想着好好写博客，想要好好做下笔记，奈何一直嫌麻烦，而且类似于CSDN、博客园这种的网站也可以写文章，但自己对博客的个人操作就很少了= =不过Hexo真的挺好的，搭建一个大致的网站框架而且自己可以对网站进行修改成符合自己风格和需要功能。不多bb，直接上搭建步骤。</p>
 <h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><ul>
 <li>安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>用来生成静态页面</li>
