@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://mohuaxiao.github.io/2017/08/08/effective-cpp/index.html">
 <meta property="og:site_name" content="骑着蜗牛去旅行">
 <meta property="og:description" content="1.让自己习惯cpp01.视cpp为一个语言联邦 C, C with class, C with template, STL 02.尽量以const, enum, inline代替#define 对于单纯常量，最好以const对象或enum替换#define 对于形似函数的宏，最好改用inline函数替换#define 宏会产生副作用：1234#define MAX(a,b) ((a) &amp;gt;">
-<meta property="og:updated_time" content="2017-08-10T05:46:50.043Z">
+<meta property="og:updated_time" content="2017-08-10T05:51:59.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="effective cpp">
 <meta name="twitter:description" content="1.让自己习惯cpp01.视cpp为一个语言联邦 C, C with class, C with template, STL 02.尽量以const, enum, inline代替#define 对于单纯常量，最好以const对象或enum替换#define 对于形似函数的宏，最好改用inline函数替换#define 宏会产生副作用：1234#define MAX(a,b) ((a) &amp;gt;">
@@ -193,6 +193,7 @@
 <li>在const和non-const成员函数中避免重复<br>1.让non-const版本调用const版本<br>2.调用const版本时，将常量性移除(使用const_cast)<br>3.如果只是单纯的调用，会递归调用自己，必须把*this转换为const(使用static_const)<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> const char&amp; operator [] ( std:size_t position ) const</div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    ...</div><div class="line">    ...</div><div class="line">    <span class="built_in">return</span> p[position]</div><div class="line">&#125;</div><div class="line"></div><div class="line">char &amp; operator [] ( std::size_t position )</div><div class="line">&#123;</div><div class="line">    const_cast&lt;char&amp;&gt; (static_cast&lt;const T&amp;&gt; (*this)[position]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h3 id="04-确定确定对象被使用前已先被初始化"><a href="#04-确定确定对象被使用前已先被初始化" class="headerlink" title="04.确定确定对象被使用前已先被初始化"></a>04.确定确定对象被使用前已先被初始化</h3><ul>
 <li>为内置型对象进行手工初始化，因为C++不保证初始化它们</li>
 <li>构造函数最好使用member initialization list，而不要在构造函数本体内使用赋值操作。member initialization list中列出的成员变量，其排列次序应该和它们在class中的声明次序相同</li>
@@ -503,15 +504,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hexo build</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cpp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">miss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hexo build</a>
               </li>
              
               <li class="article-tag-list-item">
