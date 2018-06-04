@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mohuaxiao.github.io">
-  <title>Tag: deep learning | 骑着蜗牛去旅行</title>
+  <title>[tensorflow learning note]tensorflow可视化board | 骑着蜗牛去旅行</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the blog of Vincent Mo">
-<meta property="og:type" content="website">
-<meta property="og:title" content="骑着蜗牛去旅行">
-<meta property="og:url" content="https://mohuaxiao.github.io/tags/deep-learning/index.html">
+  <meta name="description" content="TensorBoard可以将训练过程中的各种绘制数据展示出来，包括标量（scalars），图片（images），音频（Audio）,计算图（graph）,数据分布，直方图（histograms）和嵌入式向量。 使用TensorBoard展示数据，需要在执行Tensorflow就算图的过程中，将各种类型的数据汇总并记录到日志文件中。然后使用TensorBoard读取这些日志文件，解析数据并生产数据">
+<meta name="keywords" content="tensorflow,deep leaning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[tensorflow learning note]tensorflow可视化board">
+<meta property="og:url" content="https://mohuaxiao.github.io/2018/06/05/tensorflow-learning-note-tensorflow可视化board/index.html">
 <meta property="og:site_name" content="骑着蜗牛去旅行">
-<meta property="og:description" content="the blog of Vincent Mo">
+<meta property="og:description" content="TensorBoard可以将训练过程中的各种绘制数据展示出来，包括标量（scalars），图片（images），音频（Audio）,计算图（graph）,数据分布，直方图（histograms）和嵌入式向量。 使用TensorBoard展示数据，需要在执行Tensorflow就算图的过程中，将各种类型的数据汇总并记录到日志文件中。然后使用TensorBoard读取这些日志文件，解析数据并生产数据">
+<meta property="og:image" content="https://mohuaxiao.github.io/2018/06/05/tensorflow-learning-note-tensorflow可视化board/img/2018-6-4/scalar.png">
+<meta property="og:image" content="https://mohuaxiao.github.io/2018/06/05/tensorflow-learning-note-tensorflow可视化board/img/2018-6-4/graph.png">
+<meta property="og:updated_time" content="2018-06-04T10:57:53.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="骑着蜗牛去旅行">
-<meta name="twitter:description" content="the blog of Vincent Mo">
+<meta name="twitter:title" content="[tensorflow learning note]tensorflow可视化board">
+<meta name="twitter:description" content="TensorBoard可以将训练过程中的各种绘制数据展示出来，包括标量（scalars），图片（images），音频（Audio）,计算图（graph）,数据分布，直方图（histograms）和嵌入式向量。 使用TensorBoard展示数据，需要在执行Tensorflow就算图的过程中，将各种类型的数据汇总并记录到日志文件中。然后使用TensorBoard读取这些日志文件，解析数据并生产数据">
+<meta name="twitter:image" content="https://mohuaxiao.github.io/2018/06/05/tensorflow-learning-note-tensorflow可视化board/img/2018-6-4/scalar.png">
   
     <link rel="alternative" href="/atom.xml" title="骑着蜗牛去旅行" type="application/atom+xml">
   
@@ -152,36 +157,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-tensorflow-learning-note-tensorflow可视化board" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/02/tensorflow-learning-note-tensorflow中的概念/" class="archive-article-date">
-  	<time datetime="2018-06-01T23:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/02/tensorflow-learning-note-tensorflow中的概念/">[tensorflow learning note]tensorflow中的概念</a>
+    <h1 class="article-title" itemprop="name">
+      [tensorflow learning note]tensorflow可视化board
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/06/05/tensorflow-learning-note-tensorflow可视化board/" class="archive-article-date">
+  	<time datetime="2018-06-04T18:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+        <ul>
+<li>TensorBoard可以将训练过程中的各种绘制数据展示出来，包括标量（scalars），图片（images），音频（Audio）,计算图（graph）,数据分布，直方图（histograms）和嵌入式向量。</li>
+<li>使用TensorBoard展示数据，需要在执行Tensorflow就算图的过程中，将各种类型的数据汇总并记录到日志文件中。然后使用TensorBoard读取这些日志文件，解析数据并生产数据可视化的Web页面，让我们可以在浏览器中观察各种汇总数据。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tf.summary.scalar(tags, values, collections=None, name=None)</div></pre></td></tr></table></figure>
+<ul>
+<li>记录标量，一般在画loss， accuracy用到</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tf.summary.histogram(tag, values, collections=None, name=None</div></pre></td></tr></table></figure>
+<ul>
+<li>记录var的直方图，不是很会看= =</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tf.summary.image(tag, tensor, max_images=3, collections=None, name=None)</div></pre></td></tr></table></figure>
+<ul>
+<li>输出带图像的probuf</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tf.summary.merge(inputs, collections=None, name=None)</div></pre></td></tr></table></figure>
+<ul>
+<li>对上面几种类型数据进行汇总</li>
+</ul>
+<h4 id="an-instance"><a href="#an-instance" class="headerlink" title="an instance"></a>an instance</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">import tensorflow as tf</div><div class="line">import numpy as np</div><div class="line"></div><div class="line">log_dir = <span class="string">'/home/mohuaxiao/lod_dir/summaries'</span></div><div class="line"></div><div class="line">def variable_summary(var):</div><div class="line">    with tf.name_scope(<span class="string">'summaries'</span>):</div><div class="line">        mean = tf.reduce_mean(var)</div><div class="line">        tf.summary.scalar(<span class="string">'mean'</span>, mean)</div><div class="line">        with tf.name_scope(<span class="string">'stddev'</span>):</div><div class="line">            stddev = tf.square(tf.reduce_mean(tf.square(mean-var)))</div><div class="line">        tf.summary.scalar(<span class="string">'stddev'</span>, stddev)</div><div class="line">        tf.summary.scalar(<span class="string">'max'</span>, tf.reduce_max(var))</div><div class="line">        tf.summary.scalar(<span class="string">'min'</span>, tf.reduce_min(var))</div><div class="line">        tf.summary.histogram(<span class="string">'histogram'</span>, var)</div><div class="line"></div><div class="line"><span class="comment"># linear regression</span></div><div class="line">def add_layer(inputs, in_size, out_size, activation = None):</div><div class="line">    with tf.name_scope(<span class="string">'weight'</span>):</div><div class="line">        weight = tf.Variable(tf.random_normal([in_size, out_size]))</div><div class="line">        variable_summary(weight)</div><div class="line">    with tf.name_scope(<span class="string">'bias'</span>):</div><div class="line">        bias = tf.Variable(tf.zeros([1, out_size]) + 0.1)</div><div class="line">        variable_summary(bias)</div><div class="line">    with tf.name_scope(<span class="string">'y_'</span>):</div><div class="line">        y_ = tf.matmul(inputs, weight) + bias</div><div class="line">        variable_summary(y_)</div><div class="line">    <span class="keyword">if</span> activation is None:</div><div class="line">        outputs = y_</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        outputs = activation(y_)</div><div class="line">    <span class="built_in">return</span> outputs</div><div class="line"></div><div class="line"><span class="comment"># generate the input data and define the y_data</span></div><div class="line">x_data = np.linspace(-1, 1, 300)[:, np.newaxis]</div><div class="line">noise = np.random.normal(0, 0.05, x_data.shape)</div><div class="line">y_data = np.square(x_data) - 0.5 + noise</div><div class="line"></div><div class="line">with tf.name_scope(<span class="string">'input'</span>):</div><div class="line">    xs = tf.placeholder(tf.float32, [None, 1])</div><div class="line">    ys = tf.placeholder(tf.float32, [None, 1])</div><div class="line"></div><div class="line"><span class="comment"># net work</span></div><div class="line">layer1 = add_layer(xs, 1, 10, tf.nn.relu)</div><div class="line"></div><div class="line"><span class="comment"># output layer</span></div><div class="line">pred = add_layer(layer1, 10, 1, None)</div><div class="line"></div><div class="line">with tf.name_scope(<span class="string">'loss'</span>):</div><div class="line">    <span class="comment"># define the loss</span></div><div class="line">    loss = tf.reduce_mean(tf.reduce_sum(tf.square(ys - pred), reduction_indices = [1]))</div><div class="line">    variable_summary(loss)</div><div class="line"></div><div class="line">with tf.name_scope(<span class="string">'train_op'</span>):</div><div class="line">    <span class="comment"># the training aim to minimize the loss</span></div><div class="line">    train_op = tf.train.GradientDescentOptimizer(0.1).minimize(loss)</div><div class="line">    variable_summary(train_op)</div><div class="line"><span class="comment"># init all the variables</span></div><div class="line">init = tf.global_variables_initializer()</div><div class="line">merged = tf.summary.merge_all()</div><div class="line">sess = tf.Session()</div><div class="line">train_writer = tf.summary.FileWriter(log_dir + <span class="string">'/train'</span>, sess.graph)  </div><div class="line"></div><div class="line">saver = tf.train.Saver()</div><div class="line"></div><div class="line">sess.run(init)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(1000):</div><div class="line">    summary, _ = sess.run([merged, train_op], feed_dict = &#123;xs:x_data, ys:y_data&#125;)</div><div class="line">    <span class="keyword">if</span> i % 50 == 0:</div><div class="line">        <span class="comment"># print the loss every 50 steps</span></div><div class="line">        <span class="built_in">print</span>(sess.run(loss, feed_dict = &#123;xs:x_data, ys:y_data&#125;))</div><div class="line">        train_writer.add_summary(summary, i)</div><div class="line">        saver.save(sess, log_dir+<span class="string">"/model.ckpt"</span>, i)</div><div class="line">sess.close()</div><div class="line">train_writer.close()</div></pre></td></tr></table></figure>
+<ul>
+<li>输出的summary会保存到指定路径中，在终端输入tensorboard –logdir=/home/mohuaxiao/lod_dir/summaries，即可在tensorboard中看到自己实验中保存的数据记录：</li>
+</ul>
+<p><img src="./img/2018-6-4/scalar.png" alt="scalar"><br><img src="./img/2018-6-4/graph.png" alt="graph"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,63 +222,106 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">deep learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">deep leaning</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://mohuaxiao.github.io/2018/06/05/tensorflow-learning-note-tensorflow可视化board/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/01/post-propogation/" class="archive-article-date">
-  	<time datetime="2018-06-01T14:46:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-01</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/01/post-propogation/">Back propogation</a>
-    </h1>
+  
+    <a href="/2018/06/02/tensorflow-learning-note-tensorflow中的概念/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[tensorflow learning note]tensorflow中的概念</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "https://mohuaxiao.github.io/2018/06/05/tensorflow-learning-note-tensorflow可视化board/", 
+    sourceId: "tensorflow-learning-note-tensorflow可视化board",
+    productKey: "74ed1f36987e4a6fa77e0ac7ea7b2c69",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">deep learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+       
 
 
           </div>
@@ -275,9 +349,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
