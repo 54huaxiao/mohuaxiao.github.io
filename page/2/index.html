@@ -154,6 +154,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-tensorflow-learning-note-tensorflow中的概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/02/tensorflow-learning-note-tensorflow中的概念/">[tensorflow learning note]tensorflow中的概念</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/02/tensorflow-learning-note-tensorflow中的概念/" class="archive-article-date">
+  	<time datetime="2018-06-01T23:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="tensorflow分为构建模型和训练两个部分，构建模型通常会使用到tensor，variable，placeholder，而训练阶段会使用到Session。Session是tensorflow中的一个类，作用是把graph-ops部署到device-CPU-GPU-上，并提供具体执行这些op的方法。"><a href="#tensorflow分为构建模型和训练两个部分，构建模型通常会使用到tensor，variable，placeholder，而训练阶段会使用到Session。Session是tensorflow中的一个类，作用是把graph-ops部署到device-CPU-GPU-上，并提供具体执行这些op的方法。" class="headerlink" title="tensorflow分为构建模型和训练两个部分，构建模型通常会使用到tensor，variable，placeholder，而训练阶段会使用到Session。Session是tensorflow中的一个类，作用是把graph ops部署到device(CPU/GPU)上，并提供具体执行这些op的方法。"></a>tensorflow分为构建模型和训练两个部分，构建模型通常会使用到tensor，variable，placeholder，而训练阶段会使用到Session。Session是tensorflow中的一个类，作用是把graph ops部署到device(CPU/GPU)上，并提供具体执行这些op的方法。</h5><ul>
+<li>为什么这么设计？</li>
+<li>Python的运行性能较低，我们在执行numerical computing的时候，都会尽量使用非python语言编写的代码，比如使用Numpy这种预编译好的C代码来做矩阵运算。在Python内部计算环境和外部环境（如Numpy）切换需要花费overhead cost。对于一个简单运算，比如矩阵运算，从Python环境切换到Numpy，Numpy运算得到结果，再从Numpy切回Python，这个成本，比纯粹在Python内部做同类运算的成本要低很多。但是，一个复杂数值运算由多个基本运算组合而成，如果每个基本运算来一次这种环境切换，overhead cost就不可忽视了。为了减少来回的环境切换，TensorFlow的做法是，先在Python内定义好整个Graph，然后在Python外运行整个完整的Graph。因此TensorFlow的代码结构也就对应为两个阶段了。</li>
+</ul>
+<h4 id="an-instance"><a href="#an-instance" class="headerlink" title="an instance"></a>an instance</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">import tesorflow as tf  </div><div class="line">import numpy as np  </div><div class="line">  </div><div class="line"><span class="comment"># create data  </span></div><div class="line">x_data = np.random.rand(100).astype(np.float32) <span class="comment"># 随机生成100个数据  </span></div><div class="line">y_data = x_data*0.1 + 0.3  </div><div class="line">  </div><div class="line"><span class="comment"># create tensorflow struct start  </span></div><div class="line">Weights = tf.Variable(tf.random_uniform([1], -1.0, 1.0))  <span class="comment">#生成一维向量  </span></div><div class="line">biases = tf.Variable(tf.zeros([1]))  </div><div class="line">  </div><div class="line">y = Weights*x_data + biases  </div><div class="line">  </div><div class="line"><span class="comment">#计算损失函数  </span></div><div class="line">loss = tf.reduce_mean(tf.square(y - y_data))</div><div class="line">optimizer = tf.train.GradientDescentOptimizer(0.5)  </div><div class="line">train = optimizer.minimize(loss)  </div><div class="line">  </div><div class="line">init = tf.global_variables_initializer()  </div><div class="line"><span class="comment"># create tensorflow struct end  </span></div><div class="line">  </div><div class="line">with tf.Session() as sess:  </div><div class="line">    sess.run(init)  </div><div class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> range(201):  </div><div class="line">        sess.run(train)  </div><div class="line">        <span class="keyword">if</span> step % 20 == 0:  </div><div class="line">            <span class="built_in">print</span>(step, sess.run(Weights), sess.run(biases))</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/06/02/tensorflow-learning-note-tensorflow中的概念/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">deep learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/02/tensorflow-learning-note-tensorflow中的概念/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-post-propogation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -434,71 +503,9 @@
 
 
   
-    <article id="post-hope-a-good-day" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/17/hope-a-good-day/">hope a good day</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/17/hope-a-good-day/" class="archive-article-date">
-  	<time datetime="2017-05-17T02:49:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-        <p>miss u…</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">miss</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/17/hope-a-good-day/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -602,11 +609,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">miss</a>
+                <a href="javascript:void(0)" class="js-tag color2">matlab</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hexo build</a>
+                <a href="javascript:void(0)" class="js-tag color5">digital image processing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">miss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,6 +626,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DenseNet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hexo build</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,15 +649,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">deep leaning</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DenseNet</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>
