@@ -174,9 +174,6 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
         <h3 id="编程题-代价"><a href="#编程题-代价" class="headerlink" title="[编程题]代价"></a>[编程题]代价</h3><p>你有3个需要完成的任务，完成这3个任务是需要付出代价的。<br>首先，你可以不花任何代价的完成一个任务；然后，在完成了第i个任务之后，你可以花费|Ai - Aj|的代价完成第j个任务。|x|代表x的绝对值。<br>计算出完成所有任务的最小代价。</p>
 <h4 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h4><blockquote>
 <p>一行3个整数A1,A2,A3，每个数字之间用一个空格分隔。所有数字都是整数，并且在[1,100]范围内。</p>
@@ -196,45 +193,10 @@
 <h4 id="输出例子2"><a href="#输出例子2" class="headerlink" title="输出例子2:"></a>输出例子2:</h4><blockquote>
 <p>0</p>
 </blockquote>
-<h4 id="实现代码："><a href="#实现代码：" class="headerlink" title="实现代码："></a>实现代码：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">using namespace std;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">    vector&lt;int&gt; arr(3,0);</div><div class="line">    cin &gt;&gt; arr[0] &gt;&gt; arr[1] &gt;&gt; arr[2];</div><div class="line">    sort(arr.begin(), arr.end());</div><div class="line">    </div><div class="line">    cout &lt;&lt; - arr[0] + arr[2] &lt;&lt; endl;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="编程题-访友"><a href="#编程题-访友" class="headerlink" title="[编程题]访友"></a>[编程题]访友</h3><p>小易准备去拜访他的朋友，他的家在0点，但是他的朋友的家在x点(x &gt; 0)，均在一条坐标轴上。小易每一次可以向前走1，2，3，4或者5步。问小易最少走多少次可以到达他的朋友的家。</p>
-<h4 id="输入描述-1"><a href="#输入描述-1" class="headerlink" title="输入描述:"></a>输入描述:</h4><blockquote>
-<p>一行包含一个数字x(1 &lt;= x &lt;= 1000000)，代表朋友家的位置。</p>
-</blockquote>
-<h4 id="输出描述-1"><a href="#输出描述-1" class="headerlink" title="输出描述:"></a>输出描述:</h4><blockquote>
-<p>一个整数，最少的步数。</p>
-</blockquote>
-<h4 id="输入例子1-1"><a href="#输入例子1-1" class="headerlink" title="输入例子1:"></a>输入例子1:</h4><blockquote>
-<p>4</p>
-</blockquote>
-<h4 id="输出例子1：-1"><a href="#输出例子1：-1" class="headerlink" title="输出例子1："></a>输出例子1：</h4><blockquote>
-<p>1</p>
-</blockquote>
-<h4 id="输入例子2-1"><a href="#输入例子2-1" class="headerlink" title="输入例子2:"></a>输入例子2:</h4><blockquote>
-<p>10</p>
-</blockquote>
-<h4 id="输出例子2-1"><a href="#输出例子2-1" class="headerlink" title="输出例子2:"></a>输出例子2:</h4><blockquote>
-<p>2</p>
-</blockquote>
-<h4 id="实现代码：-1"><a href="#实现代码：-1" class="headerlink" title="实现代码："></a>实现代码：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">using namespace std;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">    int target;</div><div class="line">    cin &gt;&gt; target;</div><div class="line">    if (target &lt;= 5) &#123;</div><div class="line">        cout &lt;&lt; &quot;1&quot; &lt;&lt; endl;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">    int num = 0;</div><div class="line">    num = target / 5;</div><div class="line">    if (target % 5 != 0) num += 1;</div><div class="line">    cout &lt;&lt; num &lt;&lt; endl;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="编程题-翻转翻转"><a href="#编程题-翻转翻转" class="headerlink" title="[编程题]翻转翻转"></a>[编程题]翻转翻转</h3><p>给定一个N*M的矩阵，在矩阵中每一块有一张牌，我们假定刚开始的时候所有牌的牌面向上。<br>现在对于每个块进行如下操作：</p>
-<blockquote>
-<p>翻转某个块中的牌，并且与之相邻的其余八张牌也会被翻转。<br>XXX<br>XXX<br>XXX<br>如上矩阵所示，翻转中间那块时，这九块中的牌都会被翻转一次。<br>请输出在对矩阵中每一块进行如上操作以后，牌面向下的块的个数。</p>
-</blockquote>
-<h4 id="输入描述-2"><a href="#输入描述-2" class="headerlink" title="输入描述:"></a>输入描述:</h4><blockquote>
-<p>输入的第一行为测试用例数t(1 &lt;= t &lt;= 100000),<br>接下来t行，每行包含两个整数N,M(1 &lt;= N, M &lt;= 1,000,000,000)</p>
-</blockquote>
-<h4 id="输出描述-2"><a href="#输出描述-2" class="headerlink" title="输出描述:"></a>输出描述:</h4><blockquote>
-<p>对于每个用例输出包含一行，输出牌面向下的块的个数</p>
-</blockquote>
-<h4 id="输入例子1-2"><a href="#输入例子1-2" class="headerlink" title="输入例子1:"></a>输入例子1:</h4><blockquote>
-<p>5 1 1 1 2 3 1 4 1 2 2</p>
-</blockquote>
-<h4 id="输出例子1：-2"><a href="#输出例子1：-2" class="headerlink" title="输出例子1："></a>输出例子1：</h4><blockquote>
-<p>1 0 1 2 0</p>
-</blockquote>
-<h4 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h4><p>分四种情况<br>n==1,m==1 翻转1次 改变为1<br>n==1,m&gt;1 角翻转2次 中间翻转3次 改变为 m-2<br>n&gt;1,m==1 角翻转2次 中间翻转3次 改变为 m-2<br>n&gt;1,m&gt;1 角翻转4次 第1行和第n行出去两角后翻转6次，同理第1列和第m列翻转6次，在第2行到第n-1行之间 ，第2列到第m-1列之间，翻转9次</p>
-<h4 id="实现代码：-2"><a href="#实现代码：-2" class="headerlink" title="实现代码："></a>实现代码：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">using namespace std;</div><div class="line">int main()&#123;</div><div class="line">    long long t, n, m;</div><div class="line">    cin &gt;&gt; t;</div><div class="line">    while(t--)&#123;</div><div class="line">        cin &gt;&gt; n &gt;&gt; m;</div><div class="line">        if (n==1 and m==1) cout &lt;&lt; 1 &lt;&lt; endl;</div><div class="line">        if (n==1 and m&gt;1) cout &lt;&lt; m-2 &lt;&lt; endl;</div><div class="line">        if (n&gt;1 and m==1) cout &lt;&lt; n-2 &lt;&lt; endl;</div><div class="line">        if (n&gt;1 and m&gt;1) cout &lt;&lt; (n-2)*(m-2) &lt;&lt; endl;</div><div class="line">          </div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="实现代码："><a href="#实现代码：" class="headerlink" title="实现代码："></a>实现代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr(<span class="number">3</span>,<span class="number">0</span>);</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; arr[<span class="number">0</span>] &gt;&gt; arr[<span class="number">1</span>] &gt;&gt; arr[<span class="number">2</span>];</div><div class="line">    sort(arr.begin(), arr.end());</div><div class="line">    </div><div class="line">    <span class="built_in">cout</span> &lt;&lt; - arr[<span class="number">0</span>] + arr[<span class="number">2</span>] &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/09/15/网易2019编程题/#more">more >></a>
+        
       
 
       
@@ -242,6 +204,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -674,6 +651,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DenseNet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔试</a>
               </li>
             
             <div class="clearfix"></div>
