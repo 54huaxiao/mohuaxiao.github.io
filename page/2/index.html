@@ -154,6 +154,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Image-steganalysis-on-CNN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/08/Image-steganalysis-on-CNN/">Image steganalysis on CNN</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/08/Image-steganalysis-on-CNN/" class="archive-article-date">
+  	<time datetime="2018-07-07T22:37:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Structural-Design-of-Convolutional-Neural-Networks"><a href="#Structural-Design-of-Convolutional-Neural-Networks" class="headerlink" title="Structural Design of Convolutional Neural Networks"></a>Structural Design of Convolutional Neural Networks</h4><ul>
+<li>In this letter, the author report a CNN architecture that takes into account knowledge of steganalysis. In the detailed architecture, we take absolute values of elements in the feature maps generated from the first convolutional layer to facilitate and improve statistical modeling in the subsequent layers; to prevent overfitting, we constrain the range of data values with the saturation regions of hyperbolic tangent (TanH) at early stages of the networks and reduce the strength of modeling using 1 × 1 convolutions in deeper layers.</li>
+</ul>
+<h5 id="Overall-Architecture"><a href="#Overall-Architecture" class="headerlink" title="Overall Architecture"></a>Overall Architecture</h5><p><img src="img/2018-7-7/xu-model.png" alt="xu-net"><br>Fig. 1. Proposed CNN architecture. Layer types and parameter sizes (choices) are displayed inside boxes. Data sizes are displayed on the two sides. Sizes of convolution kernels in the boxes follow (number of kernels) × (height × width × number of input feature maps). Sizes of data follow (number of feature maps) × (height × width). Padding is applied in convolutional and pooling layers as well as the HPF layer.</p>
+        
+          <a class="article-more-a" href="/2018/07/08/Image-steganalysis-on-CNN/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CNN</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">image steganalysis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/08/Image-steganalysis-on-CNN/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-tensorflow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -448,82 +516,6 @@
 
 
   
-    <article id="post-effective-cpp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/08/effective-cpp/">effective cpp</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/08/effective-cpp/" class="archive-article-date">
-  	<time datetime="2017-08-07T22:29:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-让自己习惯cpp"><a href="#1-让自己习惯cpp" class="headerlink" title="1.让自己习惯cpp"></a>1.让自己习惯cpp</h2><h3 id="01-视cpp为一个语言联邦"><a href="#01-视cpp为一个语言联邦" class="headerlink" title="01.视cpp为一个语言联邦"></a>01.视cpp为一个语言联邦</h3><p> C, C with class, C with template, STL</p>
-<h3 id="02-尽量以const-enum-inline代替-define"><a href="#02-尽量以const-enum-inline代替-define" class="headerlink" title="02.尽量以const, enum, inline代替#define"></a>02.尽量以const, enum, inline代替#define</h3><ul>
-<li>对于单纯常量，最好以const对象或enum替换#define</li>
-<li>对于形似函数的宏，最好改用inline函数替换#define</li>
-<li>宏会产生副作用：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#define MAX(a,b) ((a) &gt; (b) ? (a) : (b))</span></div><div class="line">int a = 5, b = 0</div><div class="line">MAX(++a, b)     //a被累加二次</div><div class="line">MAX(++a, b+10)  //a被累加一次</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="03-尽可能使用const"><a href="#03-尽可能使用const" class="headerlink" title="03.尽可能使用const"></a>03.尽可能使用const</h3><ul>
-<li><p>迭代器的作用，像一个T*指针</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const std::vector&lt;int&gt;::iterator iter  -&gt;  T* const</div><div class="line">std::vector&lt;int&gt;::const_iterator iter iter  -&gt; const T*</div></pre></td></tr></table></figure>
-</li>
-<li><p>const成员函数的意义<br>1.使class接口容易被理解。得知哪个函数可以改动对象的内容而哪些函数不行，非常重要<br>2.使操作const对象成为可能。非const成员函数，无法操作const对象</p>
-</li>
-<li>在const和non-const成员函数中避免重复<br>1.让non-const版本调用const版本<br>2.调用const版本时，将常量性移除(使用const_cast)<br>3.如果只是单纯的调用，会递归调用自己，必须把*this转换为const(使用static_const)<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> const char&amp; operator [] ( std:size_t position ) const</div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    ...</div><div class="line">    ...</div><div class="line">    <span class="built_in">return</span> p[position]</div><div class="line">&#125;</div><div class="line"></div><div class="line">char &amp; operator [] ( std::size_t position )</div><div class="line">&#123;</div><div class="line">    const_cast&lt;char&amp;&gt; (static_cast&lt;const T&amp;&gt; (*this)[position]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/08/08/effective-cpp/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cpp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/08/effective-cpp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -626,31 +618,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">miss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deep learning</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hexo build</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">digital image processing</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+                <a href="javascript:void(0)" class="js-tag color5">miss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -663,6 +639,26 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cpp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hexo build</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deep learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">digital image processing</a>
               </li>
              
               <li class="article-tag-list-item">
